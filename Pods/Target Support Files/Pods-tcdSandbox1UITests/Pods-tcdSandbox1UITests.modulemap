@@ -1,0 +1,6 @@
+framework module Pods_tcdSandbox1UITests {
+  umbrella header "Pods-tcdSandbox1UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

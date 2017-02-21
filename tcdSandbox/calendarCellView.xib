@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="calendarCellView" customModule="tcdSandbox1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="176" height="191"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igZ-To-qHa">
+                    <rect key="frame" x="73" y="80.5" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.95540865379999995" green="0.80595056970000001" blue="0.091548660579999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Rw5-oT-Vuc"/>
+                        <constraint firstAttribute="width" constant="30" id="WnW-Lh-usg"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-O0-UKu">
+                    <rect key="frame" x="50" y="85" width="76" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="igZ-To-qHa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6sI-wW-oq4"/>
+                <constraint firstItem="igZ-To-qHa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QUL-58-dnq"/>
+                <constraint firstItem="dvb-O0-UKu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZvW-0J-O1T"/>
+                <constraint firstItem="dvb-O0-UKu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ybZ-Vj-1GM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dayLabel" destination="dvb-O0-UKu" id="jdd-jA-lqB"/>
+                <outlet property="selectedCell" destination="igZ-To-qHa" id="P4D-3y-YuH"/>
+            </connections>
+            <point key="canvasLocation" x="-5" y="-122.5"/>
+        </view>
+    </objects>
+</document>
