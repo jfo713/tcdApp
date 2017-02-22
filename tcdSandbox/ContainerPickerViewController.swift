@@ -18,7 +18,7 @@ class ContainerPickerViewController :UIViewController {
     weak var contentsViewController :ContentsViewController?
     var containerTag :Int?
     var testString :String?
-    
+    var currentCourseLevel = CourseLevel()
     
     //View Methods
     override func viewDidLoad() {

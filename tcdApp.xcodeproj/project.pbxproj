@@ -13,6 +13,9 @@
 		2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8857EB1E3143660009A9FC /* calendarCellView.swift */; };
 		2BB11BC21E36BB07004B7FE8 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB11BC11E36BB07004B7FE8 /* headerView.swift */; };
 		2BB11BC41E36BB19004B7FE8 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB11BC31E36BB19004B7FE8 /* headerView.xib */; };
+		2BC6FB541E5D05D200DEA695 /* CourseLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC6FB531E5D05D200DEA695 /* CourseLevel.swift */; };
+		2BC6FB571E5D176C00DEA695 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC6FB561E5D176C00DEA695 /* CloudKit.framework */; };
+		2BC6FB931E5D4EE400DEA695 /* CourseLevelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC6FB921E5D4EE400DEA695 /* CourseLevelExtension.swift */; };
 		2BD7E2B31E392D33000253B6 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7E2B21E392D33000253B6 /* ContentsViewController.swift */; };
 		2BD7E2B91E39331E000253B6 /* ContentsControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7E2B81E39331E000253B6 /* ContentsControllerProtocols.swift */; };
 		2BED372D1E2847050027163A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED372C1E2847050027163A /* AppDelegate.swift */; };
@@ -50,6 +53,10 @@
 		2B8857EB1E3143660009A9FC /* calendarCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarCellView.swift; sourceTree = "<group>"; };
 		2BB11BC11E36BB07004B7FE8 /* headerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
 		2BB11BC31E36BB19004B7FE8 /* headerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
+		2BC6FB531E5D05D200DEA695 /* CourseLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseLevel.swift; sourceTree = "<group>"; };
+		2BC6FB551E5D176900DEA695 /* tcdApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tcdApp.entitlements; sourceTree = "<group>"; };
+		2BC6FB561E5D176C00DEA695 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2BC6FB921E5D4EE400DEA695 /* CourseLevelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseLevelExtension.swift; sourceTree = "<group>"; };
 		2BD7E2B21E392D33000253B6 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		2BD7E2B81E39331E000253B6 /* ContentsControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsControllerProtocols.swift; sourceTree = "<group>"; };
 		2BED37291E2847050027163A /* tcdApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tcdApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C767DC54007D5661ED0171E /* Pods_tcdSandbox1.framework in Frameworks */,
+				2BC6FB571E5D176C00DEA695 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +136,8 @@
 		2BB11BC71E36CE41004B7FE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2BC6FB531E5D05D200DEA695 /* CourseLevel.swift */,
+				2BC6FB921E5D4EE400DEA695 /* CourseLevelExtension.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -135,6 +145,7 @@
 		2BED37201E2847050027163A = {
 			isa = PBXGroup;
 			children = (
+				2BC6FB551E5D176900DEA695 /* tcdApp.entitlements */,
 				2BED372B1E2847050027163A /* tcdSandbox */,
 				2BED37401E2847050027163A /* tcdSandboxTests */,
 				2BED374B1E2847050027163A /* tcdSandboxUITests */,
@@ -203,6 +214,7 @@
 		AC57ED1E6A49391361EBBE0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BC6FB561E5D176C00DEA695 /* CloudKit.framework */,
 				90C3B943BCDF741D5D4165EF /* Pods_tcdSandbox1.framework */,
 				245B45FE769312C6E9C10710 /* Pods_tcdSandbox1Tests.framework */,
 				4A5A4925833E927C952D5609 /* Pods_tcdSandbox1UITests.framework */,
@@ -289,6 +301,14 @@
 						DevelopmentTeam = V8CTKMGRU2;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					2BED373C1E2847050027163A = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -486,7 +506,9 @@
 				2BD7E2B31E392D33000253B6 /* ContentsViewController.swift in Sources */,
 				2BED372F1E2847050027163A /* ContainerPickerViewController.swift in Sources */,
 				2B8857E81E313EF80009A9FC /* CalendarPickerViewController.swift in Sources */,
+				2BC6FB541E5D05D200DEA695 /* CourseLevel.swift in Sources */,
 				2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */,
+				2BC6FB931E5D4EE400DEA695 /* CourseLevelExtension.swift in Sources */,
 				2BED372D1E2847050027163A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +663,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = tcdApp.entitlements;
 				DEVELOPMENT_TEAM = V8CTKMGRU2;
 				INFOPLIST_FILE = tcdSandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -656,6 +679,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = tcdApp.entitlements;
 				DEVELOPMENT_TEAM = V8CTKMGRU2;
 				INFOPLIST_FILE = tcdSandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
