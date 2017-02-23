@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CloudKit
 
 class CourseLevel :NSObject {
     
@@ -15,17 +14,11 @@ class CourseLevel :NSObject {
     var cwSessions :[CourseSessionObject] = []
     var owSessions :[CourseSessionObject] = []
     
-    var container :CKContainer!
-    var publicDB :CKDatabase!
-    var privateDB :CKDatabase!
+    var toSortSessions :[CourseSessionObject] = []
     
-    init(formatter :DateFormatter) {
+    override init() {
         super.init()
-        formatter.dateFormat = "dd/MM/yyyy"
-        container = CKContainer.init(identifier: "iCloud.com.tiyHouston.DiveApp")
-        publicDB = container.publicCloudDatabase
-        privateDB = container.privateCloudDatabase
-        loadCourseModules(formatter: formatter, publicDB: publicDB)
+        loadCourseModules()
     }
 }
 

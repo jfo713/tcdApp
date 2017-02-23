@@ -80,12 +80,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tcdSandbox/ContainerPickerViewController.swift"
-            timestampString = "509488959.082876"
+            timestampString = "509501537.76815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tcdSandbox/ContainerPickerViewController.swift"
+            timestampString = "509501539.197938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tcdSandbox/CourseLevelCKExtension.swift"
+            timestampString = "509505447.877519"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "loadCourseModules()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tcdApp.CourseLevel.loadCourseModules () -&gt; ()"
+                  moduleName = "tcdApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Hal/Documents/tiyHouston/tcdApp/tcdSandbox/CourseLevelCKExtension.swift"
+                  timestampString = "509505448.963938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "876">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tcdApp.CourseLevel.(loadCourseModules () -&gt; ()).(closure #1)"
+                  moduleName = "tcdApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Hal/Documents/tiyHouston/tcdApp/tcdSandbox/CourseLevelCKExtension.swift"
+                  timestampString = "509505448.966384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tcdSandbox/CourseLevelCKExtension.swift"
+            timestampString = "509505447.877519"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "loadCourseModules()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

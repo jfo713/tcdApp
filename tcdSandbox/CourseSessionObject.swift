@@ -7,12 +7,10 @@
 //
 
 import Foundation
-import CloudKit
-
-
+//import CloudKit
 
 class CourseSessionObject :NSObject {
-    var recordID :CKRecordID?
+    //var recordID :CKRecordID?
     var sessionDate :Date?
     var sessionDateString :String?
     var sessionModule :String?
