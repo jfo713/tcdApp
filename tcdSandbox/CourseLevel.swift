@@ -17,7 +17,20 @@ class CourseLevel :NSObject {
     override init() {
         super.init()
         loadCourseModules()
-    }
+        }
+    
+    func sortCourseSession(courseSession: CourseSessionObject) {
+        switch courseSession.sessionModule! {
+            case "kr":
+                self.krSessions.append(courseSession)
+            case "cw":
+                self.cwSessions.append(courseSession)
+            case "ow":
+                self.owSessions.append(courseSession)
+            default:
+                print("switchDefault")
+            }
+        }
 }
 
 

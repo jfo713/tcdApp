@@ -38,7 +38,7 @@ extension CourseLevel {
             courseSession.sessionDate = sessionDate
             courseSession.sessionDateString = sessionDateString
             courseSession.sessionModule = sessionModule
-            self.sortCourseSessions(courseSession: courseSession)
+            self.sortCourseSession(courseSession: courseSession)
             }
         
         operation.queryCompletionBlock = { [unowned self] (cursor, error) in
@@ -55,19 +55,7 @@ extension CourseLevel {
             }
         }
     
-    func sortCourseSessions(courseSession: CourseSessionObject) {
-        
-        switch courseSession.sessionModule! {
-            case "kr":
-                self.krSessions.append(courseSession)
-            case "cw":
-                self.cwSessions.append(courseSession)
-            case "ow":
-                self.owSessions.append(courseSession)
-            default:
-                print("switchDefault")
-                }
-        }
+     
     
 }
 
