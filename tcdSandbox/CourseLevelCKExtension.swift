@@ -12,19 +12,16 @@ import CloudKit
 extension CourseLevel {
     
     func loadCourseModules() {
-        let container :CKContainer = CKContainer.init(identifier: "iCloud.com.tiyHouston.DiveApp")
+        let container :CKContainer = CKContainer.init(identifier: "iCloud.com.theironyardhouston.com.DiveApp")
         let publicDB :CKDatabase = container.publicCloudDatabase
         let predicate = NSPredicate(value: true)
-        //let sort = NSSortDescriptor(key: "creationDate", ascending: false)
         let query = CKQuery(recordType: "Classes", predicate: predicate)
-        //query.sortDescriptors = [sort]
         let operation = CKQueryOperation(query: query)
         publicDB.add(operation)
         operation.desiredKeys = ["Module", "Date","DateString"]
-        operation.resultsLimit = 200
+        operation.resultsLimit = 300
         
         operation.recordFetchedBlock = { (record :CKRecord) in
-            
             let recordID :CKRecordID = record.recordID
             print(recordID)
             guard let sessionDate :Date = record.object(forKey: "Date") as? Date else {
@@ -41,61 +38,41 @@ extension CourseLevel {
             courseSession.sessionDate = sessionDate
             courseSession.sessionDateString = sessionDateString
             courseSession.sessionModule = sessionModule
-            
-            switch courseSession.sessionModule! {
-                case "kr":
-                    self.krSessions.append(courseSession)
-                case "cw":
-                    self.cwSessions.append(courseSession)
-                case "ow":
-                    self.owSessions.append(courseSession)
-                default:
-                    print("switchDefault")
+            self.sortCourseSessions(courseSession: courseSession)
+            }
+        
+        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
+            DispatchQueue.main.async {
+            if error == nil {
+                print("yay cloudKit sent \(self.krSessions.count) cwSessions")
+                print("yay cloudKit sent \(self.cwSessions.count) cwSessions")
+                print("yay cloudKit sent \(self.owSessions.count) cwSessions")
                     }
+            else {
+                print("boo... \(error)")
+                    }
+                }
             }
         }
+    
+    func sortCourseSessions(courseSession: CourseSessionObject) {
+        
+        switch courseSession.sessionModule! {
+            case "kr":
+                self.krSessions.append(courseSession)
+            case "cw":
+                self.cwSessions.append(courseSession)
+            case "ow":
+                self.owSessions.append(courseSession)
+            default:
+                print("switchDefault")
+                }
+        }
+    
 }
 
 
-//        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
-//            DispatchQueue.main.async {
-//                self.toSortSessions = newCourseSessions
-//                for courseSession in self.toSortSessions {
-//                    guard let sessionModule = courseSession.sessionModule else {
-//                        return
-//                        }
-//                    switch sessionModule {
-//                        case "kr":
-//                            self.krSessions.append(courseSession)
-//                        case "cw":
-//                            self.cwSessions.append(courseSession)
-//                        case "ow":
-//                            self.owSessions.append(courseSession)
-//                        default:
-//                            print("switchDefault")
-//                            }
-//                        }
-//                    }
-//                }
 
 
-//func sortCourseSessions(courseSessions: [CourseSessionObject]) {
-//    for courseSession in courseSessions {
-//        let sessionModule = courseSession.sessionModule
-//        if (sessionModule == nil) {
-//            return
-//        }
-//        else {
-//            switch sessionModule! {
-//            case "kr":
-//                self.krSessions.append(courseSession)
-//            case "cw":
-//                self.cwSessions.append(courseSession)
-//            case "ow":
-//                self.owSessions.append(courseSession)
-//            default:
-//                print("switchDefault")
-//            }
-//        }
-//    }
-//}
+
+

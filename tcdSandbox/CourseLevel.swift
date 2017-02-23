@@ -14,8 +14,6 @@ class CourseLevel :NSObject {
     var cwSessions :[CourseSessionObject] = []
     var owSessions :[CourseSessionObject] = []
     
-    var toSortSessions :[CourseSessionObject] = []
-    
     override init() {
         super.init()
         loadCourseModules()
