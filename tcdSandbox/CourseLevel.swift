@@ -14,23 +14,17 @@ class CourseLevel :NSObject {
     var cwSessions :[CourseSessionObject] = []
     var owSessions :[CourseSessionObject] = []
     
+    var krDateStrings :[String] = []
+    var cwDateStrings :[String] = []
+    var owDateStrings :[String] = []
+    
+    var courseLevelDelegate :CourseLevelDelegate?
+    
     override init() {
         super.init()
         loadCourseModules()
         }
     
-    func sortCourseSession(courseSession: CourseSessionObject) {
-        switch courseSession.sessionModule! {
-            case "kr":
-                self.krSessions.append(courseSession)
-            case "cw":
-                self.cwSessions.append(courseSession)
-            case "ow":
-                self.owSessions.append(courseSession)
-            default:
-                print("switchDefault")
-            }
-        }
 }
 
 

@@ -20,7 +20,11 @@ class ContentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        guard let parentViewController :ContainerPickerViewController = self.parent as? ContainerPickerViewController else {
+            print("Problem Getting Reference to Parent")
+            return
+                }
+        parentViewController.courseLevelDelegate = self
     }
     
     @IBAction func updateButtonTouched() {
@@ -37,9 +41,8 @@ class ContentsViewController: UIViewController {
         self.contentsDelegate!.printContainerValue()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+}
 
+extension ContentsViewController :CourseLevelDelegate {
+    
 }

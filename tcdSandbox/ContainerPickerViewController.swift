@@ -20,21 +20,22 @@ class ContainerPickerViewController :UIViewController {
     var testString :String?
     var currentCourseLevel :CourseLevel!
     
+    var courseLevelDelegate :CourseLevelDelegate?
+    
     let formatter = DateFormatter()
     
     //View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         currentCourseLevel = CourseLevel()
-        //let currentCourseLevel :CourseLevel = CourseLevel(formatter: formatter)
-        print(currentCourseLevel)
+        self.contentsViewController?.contentsDelegate = self
         self.contentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "calendarPickerViewController") as! CalendarPickerViewController?
         self.contentsViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.contentsViewController!)
         self.addSubviewWithConstraints(subView: self.contentsViewController!.view, toView: self.containerView)
         containerTag = 100
         contentsViewController?.contentsDelegate = self
-        print("kr \(currentCourseLevel.krSessions.count)")
+        print("The total string count here is \(currentCourseLevel.krDateStrings.count) + \(currentCourseLevel.cwDateStrings.count) + \(currentCourseLevel.owDateStrings.count)")
     }
     
     //IBActions

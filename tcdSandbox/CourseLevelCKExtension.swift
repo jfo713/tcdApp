@@ -44,9 +44,13 @@ extension CourseLevel {
         operation.queryCompletionBlock = { [unowned self] (cursor, error) in
             DispatchQueue.main.async {
             if error == nil {
+                
                 print("yay cloudKit sent \(self.krSessions.count) cwSessions")
+                print("and sorted \(self.krDateStrings.count) krDateStrings too")
                 print("yay cloudKit sent \(self.cwSessions.count) cwSessions")
+                print("and sorted \(self.cwDateStrings.count) cwDateStrings too")
                 print("yay cloudKit sent \(self.owSessions.count) cwSessions")
+                print("and sorted \(self.owDateStrings.count) owDateStrings too")
                     }
             else {
                 print("boo... \(error)")
@@ -55,12 +59,29 @@ extension CourseLevel {
             }
         }
     
-     
+    private func sortCourseSession(courseSession: CourseSessionObject) {
+        guard let sessionModule = courseSession.sessionModule else {
+            print("no session module")
+            return
+                }
+        guard let sessionDateString = courseSession.sessionDateString else {
+            print("no session dateString")
+            return
+                }
+        
+        switch sessionModule {
+            case "kr":
+                self.krSessions.append(courseSession)
+                self.krDateStrings.append(sessionDateString)
+            case "cw":
+                self.cwSessions.append(courseSession)
+                self.cwDateStrings.append(sessionDateString)
+            case "ow":
+                self.owSessions.append(courseSession)
+                self.owDateStrings.append(sessionDateString)
+            default:
+                print("switchDefault")
+                }
+            }
     
 }
-
-
-
-
-
-

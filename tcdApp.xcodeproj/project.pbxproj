@@ -12,6 +12,7 @@
 		2B6CEE2A1E5E0E8D00C83FCC /* CourseLevelCKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CEE291E5E0E8D00C83FCC /* CourseLevelCKExtension.swift */; };
 		2B6CEE2D1E5E117B00C83FCC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6CEE2C1E5E117B00C83FCC /* CloudKit.framework */; };
 		2B6CEE2F1E5E239300C83FCC /* CourseSessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CEE2E1E5E239300C83FCC /* CourseSessionObject.swift */; };
+		2B6CEE311E5E817B00C83FCC /* CourseLevelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CEE301E5E817B00C83FCC /* CourseLevelProtocols.swift */; };
 		2B8857E81E313EF80009A9FC /* CalendarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8857E71E313EF80009A9FC /* CalendarPickerViewController.swift */; };
 		2B8857EA1E3143110009A9FC /* calendarCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B8857E91E3143110009A9FC /* calendarCellView.xib */; };
 		2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8857EB1E3143660009A9FC /* calendarCellView.swift */; };
@@ -54,6 +55,7 @@
 		2B6CEE2B1E5E117400C83FCC /* tcdApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tcdApp.entitlements; sourceTree = "<group>"; };
 		2B6CEE2C1E5E117B00C83FCC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2B6CEE2E1E5E239300C83FCC /* CourseSessionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSessionObject.swift; sourceTree = "<group>"; };
+		2B6CEE301E5E817B00C83FCC /* CourseLevelProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseLevelProtocols.swift; sourceTree = "<group>"; };
 		2B8857E71E313EF80009A9FC /* CalendarPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerViewController.swift; sourceTree = "<group>"; };
 		2B8857E91E3143110009A9FC /* calendarCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = calendarCellView.xib; sourceTree = "<group>"; };
 		2B8857EB1E3143660009A9FC /* calendarCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarCellView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				2B6CEE271E5E0DB400C83FCC /* CourseLevel.swift */,
 				2B6CEE291E5E0E8D00C83FCC /* CourseLevelCKExtension.swift */,
 				2B6CEE2E1E5E239300C83FCC /* CourseSessionObject.swift */,
+				2B6CEE301E5E817B00C83FCC /* CourseLevelProtocols.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6CEE311E5E817B00C83FCC /* CourseLevelProtocols.swift in Sources */,
 				2BB11BC21E36BB07004B7FE8 /* headerView.swift in Sources */,
 				2BD7E2B91E39331E000253B6 /* ContentsControllerProtocols.swift in Sources */,
 				2BD7E2B31E392D33000253B6 /* ContentsViewController.swift in Sources */,
