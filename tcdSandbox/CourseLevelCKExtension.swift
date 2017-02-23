@@ -38,7 +38,6 @@ extension CourseLevel {
                 }
             
             let courseSession = CourseSessionObject()
-            //courseSession.recordID = recordID
             courseSession.sessionDate = sessionDate
             courseSession.sessionDateString = sessionDateString
             courseSession.sessionModule = sessionModule
