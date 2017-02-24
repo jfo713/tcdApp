@@ -1,0 +1,10 @@
+framework module Cely {
+  umbrella header "Cely.h"
+
+  export *
+  module * { export * }
+}
+
+module Cely.Swift {
+    header "Cely-Swift.h"
+}
