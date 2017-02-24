@@ -94,12 +94,15 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
             let dateString :String = formatter.string(from: cellState.date)
             if self.calendarKRdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.blue
+                myCell.cellModuleType = "kr"
             }
             else if self.calendarCWdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.purple
+                myCell.cellModuleType = "cw"
             }
             else if self.calendarOWdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.green
+                myCell.cellModuleType = "ow"
             }
             else {
                 myCell.backgroundColor = UIColor.lightGray
