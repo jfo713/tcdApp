@@ -15,7 +15,9 @@ class ContainerPickerViewController :UIViewController {
     @IBOutlet weak var testLabel :UILabel!
     
     //Vars
-    weak var contentsViewController :ContentsViewController?
+    var contentsViewController :ContentsViewController?
+    var calendarViewController :CalendarPickerViewController?
+
     var containerTag :Int?
     var testString :String?
     var currentCourseLevel :CourseLevel!
@@ -27,15 +29,20 @@ class ContainerPickerViewController :UIViewController {
     //View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentCourseLevel = CourseLevel()
+        currentCourseLevel = CourseLevel(sender: self)
         self.contentsViewController?.contentsDelegate = self
         self.contentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "calendarPickerViewController") as! CalendarPickerViewController?
+        self.calendarViewController = self.contentsViewController as! CalendarPickerViewController?
+        self.calendarViewController?.contentsDelegate = self
         self.contentsViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+        self.calendarViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.contentsViewController!)
-        self.addSubviewWithConstraints(subView: self.contentsViewController!.view, toView: self.containerView)
+        self.contentsViewController?.didMove(toParentViewController: self)
+        
+        self.addSubviewWithConstraints(subView: self.calendarViewController!.view, toView: self.containerView)
         containerTag = 100
-        contentsViewController?.contentsDelegate = self
-        print("The total string count here is \(currentCourseLevel.krDateStrings.count) + \(currentCourseLevel.cwDateStrings.count) + \(currentCourseLevel.owDateStrings.count)")
+        
+
     }
     
     //IBActions
@@ -118,12 +125,58 @@ extension ContainerPickerViewController :ContentsControllerDelegate {
     func printContentValue(stringToPrint: String) {
         testString = stringToPrint
         testLabel.text = testString
-    }
+        }
     
     func printContainerValue() {
         if testString != nil {
             contentsViewController?.queryLabel?.text = testString
+            }
         }
+    
+    func setCourseLevelValue(dateStringsToSet :[String]) {
+        print("The Delegate Method Got Passed \(dateStringsToSet.count) krDateStrings")
+        }
+    
+    func reloadCalendarCourseLevel() {
+        //let date = self.calendarViewController?.visibleDates.monthDates.first
+        
+            let visibleDates = self.calendarViewController?.calendarView.visibleDates()
+            let startDate = visibleDates?.monthDates.first
+            self.calendarViewController?.calendarView.reloadData(withAnchor: startDate) {
+                
+                self.calendarViewController?.setupViewsOfCalendar(visibleDates: visibleDates!)
+                //self.calendarViewController?.calendarView.reloadDates(visibleDates!.monthDates)
+            }
+            
+            print("reloadCalendarCourseLevel First Date: ", visibleDates?.monthDates.first! ?? "no")
+            
+        }
+    
+
+}
+
+
+extension ContainerPickerViewController :CourseLevelDelegate {
+
+    func updateDelegateDateStrings(dictToPass :[String : [String]], completionHandler: (() -> Void)) {
+        
+        for (key, value) in dictToPass {
+            switch key {
+            case "kr":
+                self.calendarViewController?.calendarKRdateStrings = value
+                print("kr + \(self.calendarViewController?.calendarKRdateStrings)")
+            case "cw":
+                self.calendarViewController?.calendarCWdateStrings = value
+                print("cw + \(self.calendarViewController?.calendarCWdateStrings)")
+            case "ow":
+                self.calendarViewController?.calendarOWdateStrings = value
+                print("ow + \(self.calendarViewController?.calendarOWdateStrings)")
+            default:
+                return
+            }
+        }
+        completionHandler()
     }
+
     
 }

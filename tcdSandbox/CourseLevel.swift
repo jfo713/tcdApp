@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CourseLevel :NSObject {
     
@@ -19,10 +20,14 @@ class CourseLevel :NSObject {
     var owDateStrings :[String] = []
     
     var courseLevelDelegate :CourseLevelDelegate?
+    var courseDictToPass :[String : [String]] = [:] as [String : [String]]
     
-    override init() {
+    init(sender :ContainerPickerViewController) {
         super.init()
-        loadCourseModules()
+        
+        self.courseLevelDelegate = sender
+        
+        loadCourseModules(sender: sender)
         }
     
 }

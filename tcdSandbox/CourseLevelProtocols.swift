@@ -10,4 +10,7 @@ import Foundation
 
 protocol CourseLevelDelegate :class {
     
+    func updateDelegateDateStrings(dictToPass :[String : [String]], completionHandler: (() -> Void))
+    
+    
 }

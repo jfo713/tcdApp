@@ -10,5 +10,7 @@ protocol ContentsControllerDelegate :class {
     
     func printContentValue(stringToPrint :String)
     func printContainerValue()
+    func setCourseLevelValue(dateStringsToSet :[String])
+    func reloadCalendarCourseLevel() -> Void
     
 }

@@ -17,14 +17,14 @@ class ContentsViewController: UIViewController {
     @IBOutlet weak var testTextField :UITextField?
     
     var contentsDelegate :ContentsControllerDelegate?
+    
+    var contentsKRdateStrings :[String]?
+    var contentsCWdateStrings :[String]?
+    var contentsOWdateStrings :[String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let parentViewController :ContainerPickerViewController = self.parent as? ContainerPickerViewController else {
-            print("Problem Getting Reference to Parent")
-            return
-                }
-        parentViewController.courseLevelDelegate = self
+
     }
     
     @IBAction func updateButtonTouched() {
@@ -41,8 +41,4 @@ class ContentsViewController: UIViewController {
         self.contentsDelegate!.printContainerValue()
     }
 
-}
-
-extension ContentsViewController :CourseLevelDelegate {
-    
 }

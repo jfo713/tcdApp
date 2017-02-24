@@ -11,7 +11,7 @@ import CloudKit
 
 extension CourseLevel {
     
-    func loadCourseModules() {
+    func loadCourseModules(sender :ContainerPickerViewController) {
         let container :CKContainer = CKContainer.init(identifier: "iCloud.com.theironyardhouston.com.DiveApp")
         let publicDB :CKDatabase = container.publicCloudDatabase
         let predicate = NSPredicate(value: true)
@@ -20,7 +20,7 @@ extension CourseLevel {
         publicDB.add(operation)
         operation.desiredKeys = ["Module", "Date","DateString"]
         operation.resultsLimit = 300
-        
+    
         operation.recordFetchedBlock = { (record :CKRecord) in
             let recordID :CKRecordID = record.recordID
             print(recordID)
@@ -45,12 +45,19 @@ extension CourseLevel {
             DispatchQueue.main.async {
             if error == nil {
                 
-                print("yay cloudKit sent \(self.krSessions.count) cwSessions")
+                
+                print("yay cloudKit got \(self.krSessions.count) cwSessions @class and set \(sender.currentCourseLevel.krDateStrings.count) @VC")
                 print("and sorted \(self.krDateStrings.count) krDateStrings too")
                 print("yay cloudKit sent \(self.cwSessions.count) cwSessions")
                 print("and sorted \(self.cwDateStrings.count) cwDateStrings too")
                 print("yay cloudKit sent \(self.owSessions.count) cwSessions")
                 print("and sorted \(self.owDateStrings.count) owDateStrings too")
+                
+                self.courseLevelDelegate?.updateDelegateDateStrings(dictToPass: self.courseDictToPass, completionHandler: {
+                    sender.calendarViewController?.contentsDelegate?.reloadCalendarCourseLevel()
+                })
+                
+            
                     }
             else {
                 print("boo... \(error)")
@@ -73,15 +80,19 @@ extension CourseLevel {
             case "kr":
                 self.krSessions.append(courseSession)
                 self.krDateStrings.append(sessionDateString)
+                self.courseDictToPass["kr"] = self.krDateStrings
             case "cw":
                 self.cwSessions.append(courseSession)
                 self.cwDateStrings.append(sessionDateString)
+                self.courseDictToPass["cw"] = self.cwDateStrings
             case "ow":
                 self.owSessions.append(courseSession)
                 self.owDateStrings.append(sessionDateString)
+                self.courseDictToPass["ow"] = self.owDateStrings
             default:
                 print("switchDefault")
                 }
             }
     
 }
+

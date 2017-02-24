@@ -50,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		245B45FE769312C6E9C10710 /* Pods_tcdSandbox1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tcdSandbox1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B2614B21E5E9E83005BBC57 /* Cely.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cely.framework; path = Carthage/Build/iOS/Cely.framework; sourceTree = "<group>"; };
+		2B2614B31E5E9E83005BBC57 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		2B6CEE271E5E0DB400C83FCC /* CourseLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseLevel.swift; sourceTree = "<group>"; };
 		2B6CEE291E5E0E8D00C83FCC /* CourseLevelCKExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseLevelCKExtension.swift; sourceTree = "<group>"; };
 		2B6CEE2B1E5E117400C83FCC /* tcdApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tcdApp.entitlements; sourceTree = "<group>"; };
@@ -220,6 +222,8 @@
 		AC57ED1E6A49391361EBBE0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B2614B21E5E9E83005BBC57 /* Cely.framework */,
+				2B2614B31E5E9E83005BBC57 /* Locksmith.framework */,
 				2B6CEE2C1E5E117B00C83FCC /* CloudKit.framework */,
 				90C3B943BCDF741D5D4165EF /* Pods_tcdSandbox1.framework */,
 				245B45FE769312C6E9C10710 /* Pods_tcdSandbox1Tests.framework */,
@@ -670,6 +674,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = tcdApp.entitlements;
 				DEVELOPMENT_TEAM = V8CTKMGRU2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = tcdSandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theironyardhouston.com.tcdSandbox;
@@ -686,6 +694,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = tcdApp.entitlements;
 				DEVELOPMENT_TEAM = V8CTKMGRU2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = tcdSandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theironyardhouston.com.tcdSandbox;

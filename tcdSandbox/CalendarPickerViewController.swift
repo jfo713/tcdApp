@@ -14,11 +14,16 @@ class CalendarPickerViewController: ContentsViewController {
     @IBOutlet weak var calendarView :JTAppleCalendarView!
     @IBOutlet weak var monthLabel :UILabel!
     
+    var calendarKRdateStrings :[String] = []
+    var calendarCWdateStrings :[String] = []
+    var calendarOWdateStrings :[String] = []
+    
     let formatter = DateFormatter()
     var visibleDates :DateSegmentInfo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         calendarView.dataSource = self
         calendarView.delegate = self
         calendarView.registerCellViewXib(file: "calendarCellView")
@@ -26,7 +31,7 @@ class CalendarPickerViewController: ContentsViewController {
         calendarView.allowsMultipleSelection = false
         calendarView.visibleDates({ (visibleDates :DateSegmentInfo) in
             self.visibleDates = visibleDates
-            self.setupViewsOfCalendar(visibleDates: self.visibleDates!)
+            self.setupViewsOfCalendar(visibleDates: self.visibleDates)
             })
     }
 
@@ -44,6 +49,7 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
         let monthName = formatter.monthSymbols[(month-1) % 12]
         let year = calendar.component(NSCalendar.Unit.year, from : startDate as Date)
         monthLabel.text = monthName + ", \(year)"
+        
     }
     
     func handleCellSelection(view :JTAppleDayCellView?, cellState :CellState) {
@@ -62,7 +68,7 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
 //DataSource Delegate Methods
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
-        let startDate = formatter.date(from: "2016 02 01")
+        let startDate = formatter.date(from: "2017 02 01")
         let endDate = Date()
         let parameters = ConfigurationParameters(startDate: startDate!,
                                                  endDate: endDate,
@@ -70,7 +76,7 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
                                                  calendar: Calendar.current,
                                                  generateInDates: .forAllMonths,
                                                  generateOutDates: .tillEndOfGrid,
-                                                 firstDayOfWeek: .sunday)
+                                                 firstDayOfWeek: .monday)
         return parameters
     }
     
@@ -80,15 +86,32 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
     }
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
+        formatter.dateFormat = "dd/MM/yyyy"
         let myCell = cell as! calendarCellView
         myCell.dayLabel.text = cellState.text
         if cellState.dateBelongsTo == .thisMonth {
             myCell.dayLabel.textColor = UIColor.black
-        }
+            let dateString :String = formatter.string(from: cellState.date)
+            if self.calendarKRdateStrings.contains(dateString) {
+                myCell.backgroundColor = UIColor.blue
+            }
+            else if self.calendarCWdateStrings.contains(dateString) {
+                myCell.backgroundColor = UIColor.purple
+            }
+            else if self.calendarOWdateStrings.contains(dateString) {
+                myCell.backgroundColor = UIColor.green
+            }
+            else {
+                myCell.backgroundColor = UIColor.lightGray
+            }
+            }
         else {
             myCell.dayLabel.textColor = UIColor.gray
-        }
+            myCell.backgroundColor = UIColor.darkGray
+            }
+        
         handleCellSelection(view: cell, cellState: cellState)
+        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
@@ -98,4 +121,9 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         handleCellSelection(view: cell, cellState: cellState)
     }
+    
+    func calendar(_ calendar: JTAppleCalendarView, willResetCell cell: JTAppleDayCellView) {
+        
+    }
 }
+
