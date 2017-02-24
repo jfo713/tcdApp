@@ -116,17 +116,20 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-1g-RvO">
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-1g-RvO">
                                 <rect key="frame" x="175" y="31" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.66618192430000001" green="0.1146387081" blue="0.077122321669999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="VAs-jH-kOa"/>
                                 </constraints>
-                                <state key="normal" title="Clear">
+                                <state key="normal" title="Test">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="updateContainerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BqJ-XC-LR0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYS-mG-I8X">
+                            <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYS-mG-I8X">
                                 <rect key="frame" x="113" y="31" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.63439712869999998" green="0.40048796390000002" blue="0.66618192430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -182,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="-192"/>
+            <point key="canvasLocation" x="1852" y="-192.05397301349328"/>
         </scene>
         <!--BlueViewController-->
         <scene sceneID="KXI-we-CYD">

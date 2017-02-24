@@ -13,9 +13,8 @@ class calendarCellView: JTAppleDayCellView {
 
     @IBOutlet weak var dayLabel :UILabel!
     @IBOutlet var selectedCell :UIView!
+    var cellModuleType :String?
     
-    
-
 }
     
 

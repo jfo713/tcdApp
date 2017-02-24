@@ -17,6 +17,7 @@ class ContainerPickerViewController :UIViewController {
     //Vars
     var contentsViewController :ContentsViewController?
     var calendarViewController :CalendarPickerViewController?
+    var cacheContentsViewController :ContentsViewController?
 
     var containerTag :Int?
     var testString :String?
@@ -30,19 +31,14 @@ class ContainerPickerViewController :UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentCourseLevel = CourseLevel(sender: self)
-        self.contentsViewController?.contentsDelegate = self
-        self.contentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "calendarPickerViewController") as! CalendarPickerViewController?
-        self.calendarViewController = self.contentsViewController as! CalendarPickerViewController?
-        self.calendarViewController?.contentsDelegate = self
-        self.contentsViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.calendarViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.addChildViewController(self.contentsViewController!)
-        self.contentsViewController?.didMove(toParentViewController: self)
-        
+        calendarViewController = self.storyboard?.instantiateViewController(withIdentifier: "calendarPickerViewController") as! CalendarPickerViewController?
+        calendarViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+        self.addChildViewController(self.calendarViewController!)
         self.addSubviewWithConstraints(subView: self.calendarViewController!.view, toView: self.containerView)
+        self.contentsViewController = calendarViewController
+        contentsViewController?.contentsDelegate = self
         containerTag = 100
         
-
     }
     
     //IBActions
@@ -67,6 +63,17 @@ class ContainerPickerViewController :UIViewController {
                         identifier = "orangeViewController"
                     case 105:
                         identifier = "purpleViewController"
+                    
+                case 201:
+                    identifier = "blueViewController"
+                    self.addContentsController(withIdentifier: identifier!, onTop: self.calendarViewController!)
+                    return
+                case 202:
+                    identifier = "calendarPickerViewController"
+                    self.restoreCacheContents(withIdentifier: identifier!, forgetCurrent: self.contentsViewController!)
+                    return
+                    
+                    
                     default:
                         print("default")
                     }
@@ -82,42 +89,7 @@ class ContainerPickerViewController :UIViewController {
         // Dispose of any resources that can be recreated.
         }
     
-    private func switchContentsViewController(identifier :String) {
-        let newViewController = self.storyboard?.instantiateViewController(withIdentifier: identifier)
-        newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.cycleFromViewController(oldViewController: self.contentsViewController!, toViewController: newViewController!)
-        self.contentsViewController = newViewController as! ContentsViewController?
-        self.contentsViewController?.contentsDelegate = self
-        if (((self.contentsViewController?.staticLabel) != nil) && testString != nil) {
-            self.contentsViewController?.staticLabel?.text = testString
-        }
 
-        }
-    
-    private func cycleFromViewController(oldViewController :UIViewController, toViewController newViewController :UIViewController) {
-        oldViewController.willMove(toParentViewController: nil)
-        self.addChildViewController(newViewController)
-        self.addSubviewWithConstraints(subView: newViewController.view, toView: self.containerView!)
-        newViewController.view.alpha = 0
-        newViewController.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .transitionFlipFromLeft, animations: {
-            newViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
-                },
-                       completion: {finished in
-                        oldViewController.view.removeFromSuperview()
-                        oldViewController.removeFromParentViewController()
-                        newViewController.didMove(toParentViewController: self)
-            })
-        }
-
-    private func addSubviewWithConstraints(subView :UIView, toView parentView :UIView) {
-        parentView.addSubview(subView)
-        var viewBindingsDict = [String : AnyObject]()
-        viewBindingsDict["subView"] = subView
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: [], metrics: nil, views: viewBindingsDict))
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: [], metrics: nil, views: viewBindingsDict))
-        }
 }
 
 

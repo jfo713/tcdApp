@@ -13,5 +13,7 @@ protocol ContainerDelegate {
     func switchContentsViewController(identifier :String)
     func cycleFromViewController(oldViewController :UIViewController, toViewController newViewController :UIViewController)
     func addSubviewWithConstraints(subView :UIView, toView parentView :UIView)
+    func addContentsController(withIdentifier identifier :String, onTop currentController :ContentsViewController)
+    func restoreCacheContents(withIdentifier identifier :String, forgetCurrent currentContents: ContentsViewController)
     
 }
