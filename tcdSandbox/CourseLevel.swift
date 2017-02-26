@@ -24,9 +24,7 @@ class CourseLevel :NSObject {
     
     init(sender :ContainerPickerViewController) {
         super.init()
-        
         self.courseLevelDelegate = sender
-        
         loadCourseModules(sender: sender)
         }
     

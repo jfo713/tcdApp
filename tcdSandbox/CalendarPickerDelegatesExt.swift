@@ -15,6 +15,7 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
         formatter.dateFormat = "yyyy MM dd"
         let startDate = formatter.date(from: "2017 02 01")
         let endDate = Date()
+        
         let parameters = ConfigurationParameters(startDate: startDate!,
                                                  endDate: endDate,
                                                  numberOfRows: 6,
@@ -37,14 +38,22 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
     
     func handleCellSelection(view :JTAppleDayCellView?, cellState :CellState) {
         guard let calendarCellView = view as? calendarCellView else {
-            return
-        }
-        if cellState.isSelected {
-            calendarCellView.selectedCell.layer.cornerRadius = 15
-            calendarCellView.selectedCell.isHidden = false
+                return
+                    }
+        let cellDateString = calendarCellView.dateString
+        //let allDateStrings :[[String]] = [self.calendarKRdateStrings, self.calendarCWdateStrings, self.calendarOWdateStrings]
+        
+        if calendarKRdateStrings.contains(cellDateString!) || calendarCWdateStrings.contains(cellDateString!) || calendarOWdateStrings.contains(cellDateString!) {
+            if cellState.isSelected {
+                calendarCellView.selectedCell.layer.cornerRadius = 15
+                calendarCellView.selectedCell.isHidden = false
+            }
+            else {
+                calendarCellView.selectedCell.isHidden = true
+            }
         }
         else {
-            calendarCellView.selectedCell.isHidden = true
+            return
         }
     }
     
@@ -56,9 +65,11 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
         formatter.dateFormat = "dd/MM/yyyy"
         let myCell = cell as! calendarCellView
         myCell.dayLabel.text = cellState.text
+        let dateString :String = formatter.string(from: cellState.date)
+        myCell.dateString = dateString
         if cellState.dateBelongsTo == .thisMonth {
             myCell.dayLabel.textColor = UIColor.black
-            let dateString :String = formatter.string(from: cellState.date)
+        
             if self.calendarKRdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.blue
                 myCell.cellModuleType = "kr"
@@ -91,4 +102,5 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         handleCellSelection(view: cell, cellState: cellState)
     }
+
 }

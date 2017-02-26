@@ -42,7 +42,8 @@ extension ContainerPickerViewController :ContainerDelegate {
         }, completion: {finished in
             oldContentsView.removeFromSuperview()
             let parent = self
-            print("Number of containedControllers is: \(parent.childViewControllers.count)")
+            self.contentsViewController?.didMove(toParentViewController: parent)
+            print("After Add Number of containedControllers is: \(parent.childViewControllers.count)")
         })
     }
     
@@ -59,6 +60,8 @@ extension ContainerPickerViewController :ContainerDelegate {
             oldContentsView?.removeFromSuperview()
             currentContents.willMove(toParentViewController: nil)
             self.contentsViewController = self.cacheContentsViewController
+            let parent = self
+            print("After Restore Number of containedControllers is: \(parent.childViewControllers.count)")
         })
     }
     
@@ -76,6 +79,9 @@ extension ContainerPickerViewController :ContainerDelegate {
                         oldViewController.view.removeFromSuperview()
                         oldViewController.removeFromParentViewController()
                         newViewController.didMove(toParentViewController: self)
+                        let parent = self
+                        print("After Restore Number of containedControllers is: \(parent.childViewControllers.count)")
+                        
         })
     }
     

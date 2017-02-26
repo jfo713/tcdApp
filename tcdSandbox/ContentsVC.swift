@@ -38,7 +38,7 @@ class ContentsViewController: UIViewController {
     }
     
     @IBAction func queryButtonTouched() {
-        self.contentsDelegate!.printContainerValue()
+        self.contentsDelegate?.printContainerValue()
     }
 
 }

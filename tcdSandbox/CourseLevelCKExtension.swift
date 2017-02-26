@@ -44,21 +44,10 @@ extension CourseLevel {
         operation.queryCompletionBlock = { [unowned self] (cursor, error) in
             DispatchQueue.main.async {
             if error == nil {
-                
-                
-                print("yay cloudKit got \(self.krSessions.count) cwSessions @class and set \(sender.currentCourseLevel.krDateStrings.count) @VC")
-                print("and sorted \(self.krDateStrings.count) krDateStrings too")
-                print("yay cloudKit sent \(self.cwSessions.count) cwSessions")
-                print("and sorted \(self.cwDateStrings.count) cwDateStrings too")
-                print("yay cloudKit sent \(self.owSessions.count) cwSessions")
-                print("and sorted \(self.owDateStrings.count) owDateStrings too")
-                
                 self.courseLevelDelegate?.updateDelegateDateStrings(dictToPass: self.courseDictToPass, completionHandler: {
                     sender.calendarViewController?.contentsDelegate?.reloadCalendarCourseLevel()
-                })
-                
-            
-                    }
+                    })
+                }
             else {
                 print("boo... \(error)")
                     }

@@ -24,8 +24,9 @@ class ContainerPickerViewController :UIViewController {
     var currentCourseLevel :CourseLevel!
     
     var courseLevelDelegate :CourseLevelDelegate?
-    
     let formatter = DateFormatter()
+    
+    var isCalendarShowingToggle :Bool?
     
     //View Methods
     override func viewDidLoad() {
@@ -34,8 +35,12 @@ class ContainerPickerViewController :UIViewController {
         calendarViewController = self.storyboard?.instantiateViewController(withIdentifier: "calendarPickerViewController") as! CalendarPickerViewController?
         calendarViewController?.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.calendarViewController!)
+        self.contentsViewController = self.calendarViewController
+        self.addChildViewController(self.contentsViewController!)
         self.addSubviewWithConstraints(subView: self.calendarViewController!.view, toView: self.containerView)
-        self.contentsViewController = calendarViewController
+        
+        self.isCalendarShowingToggle = true
+        
         contentsViewController?.contentsDelegate = self
         containerTag = 100
         
@@ -67,18 +72,25 @@ class ContainerPickerViewController :UIViewController {
                 case 201:
                     identifier = "blueViewController"
                     self.addContentsController(withIdentifier: identifier!, onTop: self.calendarViewController!)
+                    self.isCalendarShowingToggle = false
                     return
                 case 202:
-                    identifier = "calendarPickerViewController"
-                    self.restoreCacheContents(withIdentifier: identifier!, forgetCurrent: self.contentsViewController!)
-                    return
-                    
-                    
+                    if(self.isCalendarShowingToggle == false) {
+                        let cacheController = self.contentsViewController!
+                        identifier = "calendarPickerViewController"
+                        self.restoreCacheContents(withIdentifier: identifier!, forgetCurrent: cacheController)
+                        self.isCalendarShowingToggle = true
+                        return
+                        }
+                        else{
+                            return
+                            }
                     default:
                         print("default")
                     }
                 switchContentsViewController(identifier: identifier!)
                 containerTag = buttonTag
+                self.isCalendarShowingToggle = false
                 }
     }
         
