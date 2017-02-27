@@ -26,12 +26,13 @@
                                 <rect key="frame" x="16" y="82" width="343" height="275"/>
                             </containerView>
                             <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejM-Ii-OkF" userLabel="blueButton">
-                                <rect key="frame" x="16" y="423" width="343" height="50"/>
+                                <rect key="frame" x="16" y="423" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.47058823529999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NMq-xj-Tje"/>
+                                    <constraint firstAttribute="width" constant="50" id="ytt-Hy-cJs"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -39,12 +40,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaO-Oo-Vov" userLabel="greenButton">
-                                <rect key="frame" x="16" y="481" width="343" height="50"/>
+                                <rect key="frame" x="16" y="481" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.086696900427341461" green="0.74025988578796387" blue="0.166330486536026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Uhk-2C-j8B"/>
                                     <constraint firstAttribute="height" constant="50" id="hqY-Ef-nUA"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -52,12 +54,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3h-FB-aap" userLabel="orangeButton">
-                                <rect key="frame" x="16" y="539" width="343" height="50"/>
+                                <rect key="frame" x="16" y="539" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="C52-Yh-KL4"/>
+                                    <constraint firstAttribute="width" constant="50" id="pb3-Ik-TZG"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -65,12 +68,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZE-Zp-5yp" userLabel="purpleButton">
-                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <rect key="frame" x="16" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.63439712869999998" green="0.40048796390000002" blue="0.66618192430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UzH-Al-bGB"/>
+                                    <constraint firstAttribute="width" constant="50" id="r8C-Ja-10c"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -78,12 +82,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJw-P7-2Hn" userLabel="redButton">
-                                <rect key="frame" x="16" y="365" width="343" height="50"/>
+                                <rect key="frame" x="16" y="365" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.66618192430000001" green="0.1146387081" blue="0.077122321669999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="01G-5b-AWG"/>
+                                    <constraint firstAttribute="width" constant="50" id="6dL-xR-BnG"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -142,10 +147,49 @@
                                     <action selector="updateContainerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cd3-Bf-89D"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cs-y8-wh5" userLabel="firstKRCell">
+                                <rect key="frame" x="74" y="365" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66618192430000001" green="0.1146387081" blue="0.077122321669999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Pick Your Classroom Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-7y-8sF" userLabel="firstCWCell">
+                                <rect key="frame" x="74" y="423" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.094117647060000004" green="0.47058823529999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Pick Your 1st Pool Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xk-bc-hFT" userLabel="secondCWCell">
+                                <rect key="frame" x="74" y="481" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.086696900430000001" green="0.74025988580000002" blue="0.16633048650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Pick Your 2nd Pool Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-4n-UOL" userLabel="firstOWCell">
+                                <rect key="frame" x="74" y="539" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Pick Your 1st Open Water Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHp-lW-ak1" userLabel="secondOWCell">
+                                <rect key="frame" x="73" y="597" width="287" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.63439712869999998" green="0.40048796390000002" blue="0.66618192430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Pick Your 2nd Open Water Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="IPn-os-wmT" firstAttribute="trailing" secondItem="WJw-P7-2Hn" secondAttribute="trailing" id="0rN-G7-nNv"/>
                             <constraint firstItem="l3h-FB-aap" firstAttribute="top" secondItem="YaO-Oo-Vov" secondAttribute="bottom" constant="8" symbolic="YES" id="1rw-ko-rlg"/>
                             <constraint firstItem="YaO-Oo-Vov" firstAttribute="top" secondItem="ejM-Ii-OkF" secondAttribute="bottom" constant="8" symbolic="YES" id="2kl-89-et5"/>
                             <constraint firstItem="Arq-hT-eIw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="30l-yN-ZGp"/>
@@ -156,10 +200,10 @@
                             <constraint firstItem="Arq-hT-eIw" firstAttribute="centerY" secondItem="yYS-mG-I8X" secondAttribute="centerY" id="AX1-DE-Qew"/>
                             <constraint firstItem="zEy-1g-RvO" firstAttribute="leading" secondItem="yYS-mG-I8X" secondAttribute="trailing" constant="2" id="GKa-Ep-EDb"/>
                             <constraint firstItem="IPn-os-wmT" firstAttribute="leading" secondItem="WJw-P7-2Hn" secondAttribute="leading" id="Gsi-m7-oex"/>
-                            <constraint firstItem="yYS-mG-I8X" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="Hrg-V5-tN8"/>
                             <constraint firstItem="WJw-P7-2Hn" firstAttribute="leading" secondItem="ejM-Ii-OkF" secondAttribute="leading" id="PzN-Te-0a1"/>
                             <constraint firstItem="QWS-cN-MQs" firstAttribute="leading" secondItem="M3L-8W-6AE" secondAttribute="trailing" constant="2" id="QDV-1U-Pje"/>
                             <constraint firstItem="WJw-P7-2Hn" firstAttribute="top" secondItem="IPn-os-wmT" secondAttribute="bottom" constant="8" symbolic="YES" id="TMg-rw-305"/>
+                            <constraint firstItem="yYS-mG-I8X" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="UpD-iV-1Z7"/>
                             <constraint firstItem="ejM-Ii-OkF" firstAttribute="leading" secondItem="YaO-Oo-Vov" secondAttribute="leading" id="aJc-y7-eDK"/>
                             <constraint firstItem="Arq-hT-eIw" firstAttribute="leading" secondItem="IPn-os-wmT" secondAttribute="leading" id="bIN-bf-Exq"/>
                             <constraint firstItem="QWS-cN-MQs" firstAttribute="trailing" secondItem="IPn-os-wmT" secondAttribute="trailing" id="dLl-Mi-5y5"/>

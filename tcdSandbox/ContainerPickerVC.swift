@@ -47,6 +47,7 @@ class ContainerPickerViewController :UIViewController {
     }
     
     //IBActions
+    
     @IBAction func updateContainer(sender: UIButton) {
         let buttonTag :Int = sender.tag
         
@@ -98,7 +99,6 @@ class ContainerPickerViewController :UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
         }
     
 

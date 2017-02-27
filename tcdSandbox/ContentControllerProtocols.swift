@@ -12,5 +12,6 @@ protocol ContentsControllerDelegate :class {
     func printContainerValue()
     func setCourseLevelValue(dateStringsToSet :[String])
     func reloadCalendarCourseLevel() -> Void
+    func handleSessionSelection(dateString :String, moduleType :String)
     
 }

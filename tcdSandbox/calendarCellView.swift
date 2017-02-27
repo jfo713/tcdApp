@@ -12,9 +12,21 @@ import JTAppleCalendar
 class calendarCellView: JTAppleDayCellView {
 
     @IBOutlet weak var dayLabel :UILabel!
-    @IBOutlet var selectedCell :UIView!
+    @IBOutlet var selectedCellIndicator :UIView!
     var cellModuleType :String?
     var dateString :String?
+        
+    func toggleSelectedIndicatorView() {
+        if selectedCellIndicator.isHidden == true {
+            selectedCellIndicator.layer.cornerRadius = 12.5
+            selectedCellIndicator.isHidden = false
+            }
+        else {
+            selectedCellIndicator.isHidden = true
+            }
+    }
+    
+    
     
 }
     

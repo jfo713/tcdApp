@@ -65,6 +65,21 @@ extension ContainerPickerViewController :ContentsControllerDelegate {
         
     }
     
+    func handleSessionSelection(dateString :String, moduleType :String) {
+        switch moduleType {
+            case "kr":
+            print("kr connected")
+            case "cw":
+            print("cw connected")
+            case "ow":
+            print("ow cnnected")
+            default:
+            print("connected")
+            return
+        }
+        
+    }
+    
     
 }
 

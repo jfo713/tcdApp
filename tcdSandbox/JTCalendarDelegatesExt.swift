@@ -1,5 +1,5 @@
 //
-//  CalendarPickerDelegatesExt.swift
+//  JTCalendarDelegatesExt.swift
 //  tcdApp
 //
 //  Created by James O'Connor on 2/23/17.
@@ -36,27 +36,6 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
         
     }
     
-    func handleCellSelection(view :JTAppleDayCellView?, cellState :CellState) {
-        guard let calendarCellView = view as? calendarCellView else {
-                return
-                    }
-        let cellDateString = calendarCellView.dateString
-        //let allDateStrings :[[String]] = [self.calendarKRdateStrings, self.calendarCWdateStrings, self.calendarOWdateStrings]
-        
-        if calendarKRdateStrings.contains(cellDateString!) || calendarCWdateStrings.contains(cellDateString!) || calendarOWdateStrings.contains(cellDateString!) {
-            if cellState.isSelected {
-                calendarCellView.selectedCell.layer.cornerRadius = 15
-                calendarCellView.selectedCell.isHidden = false
-            }
-            else {
-                calendarCellView.selectedCell.isHidden = true
-            }
-        }
-        else {
-            return
-        }
-    }
-    
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewsOfCalendar(visibleDates: visibleDates)
     }
@@ -68,39 +47,36 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
         let dateString :String = formatter.string(from: cellState.date)
         myCell.dateString = dateString
         if cellState.dateBelongsTo == .thisMonth {
-            myCell.dayLabel.textColor = UIColor.black
+            myCell.dayLabel.textColor = UIColor.white
         
             if self.calendarKRdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.blue
                 myCell.cellModuleType = "kr"
-            }
+                }
             else if self.calendarCWdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.purple
                 myCell.cellModuleType = "cw"
-            }
+                }
             else if self.calendarOWdateStrings.contains(dateString) {
                 myCell.backgroundColor = UIColor.green
                 myCell.cellModuleType = "ow"
-            }
+                }
             else {
                 myCell.backgroundColor = UIColor.lightGray
-            }
+                }
         }
         else {
             myCell.dayLabel.textColor = UIColor.gray
             myCell.backgroundColor = UIColor.darkGray
-        }
-        
-        handleCellSelection(view: cell, cellState: cellState)
-        
+            }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        handleCellSelection(view: cell, cellState: cellState)
+        handleCellSelection(calendar: self, view: cell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        handleCellSelection(view: cell, cellState: cellState)
+        handleCellDeselection(calendar: self, view: cell, cellState: cellState)
     }
 
 }

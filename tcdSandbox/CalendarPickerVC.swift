@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarPickerViewController: ContentsViewController {
+class CalendarPickerViewController :ContentsViewController {
     
     @IBOutlet weak var calendarView :JTAppleCalendarView!
     @IBOutlet weak var monthLabel :UILabel!
@@ -17,13 +17,14 @@ class CalendarPickerViewController: ContentsViewController {
     var calendarKRdateStrings :[String] = []
     var calendarCWdateStrings :[String] = []
     var calendarOWdateStrings :[String] = []
+    var allCalendarSessionDateStrings :[String] = []
     
     let formatter = DateFormatter()
     var visibleDates :DateSegmentInfo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         calendarView.dataSource = self
         calendarView.delegate = self
         calendarView.registerCellViewXib(file: "calendarCellView")
@@ -32,7 +33,7 @@ class CalendarPickerViewController: ContentsViewController {
         calendarView.visibleDates({ (visibleDates :DateSegmentInfo) in
             self.visibleDates = visibleDates
             self.setupViewsOfCalendar(visibleDates: self.visibleDates)
-            })
+        })
     }
 
     override func didReceiveMemoryWarning() {

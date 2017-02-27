@@ -16,7 +16,8 @@
 		2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8857EB1E3143660009A9FC /* calendarCellView.swift */; };
 		2BB11BC21E36BB07004B7FE8 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB11BC11E36BB07004B7FE8 /* headerView.swift */; };
 		2BB11BC41E36BB19004B7FE8 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB11BC31E36BB19004B7FE8 /* headerView.xib */; };
-		2BE8B8D11E60845200E58166 /* CalendarPickerDelegatesExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8C71E60845200E58166 /* CalendarPickerDelegatesExt.swift */; };
+		2BE803D91E648F9A008A63D7 /* CalendarViewDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE803D81E648F9A008A63D7 /* CalendarViewDelegateExt.swift */; };
+		2BE8B8D11E60845200E58166 /* JTCalendarDelegatesExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8C71E60845200E58166 /* JTCalendarDelegatesExt.swift */; };
 		2BE8B8D21E60845200E58166 /* CalendarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8C81E60845200E58166 /* CalendarPickerVC.swift */; };
 		2BE8B8D31E60845200E58166 /* ContainerCntntDelegatesExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8C91E60845200E58166 /* ContainerCntntDelegatesExt.swift */; };
 		2BE8B8D41E60845200E58166 /* ContainerControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8CA1E60845200E58166 /* ContainerControllerProtocol.swift */; };
@@ -65,7 +66,8 @@
 		2B8857EB1E3143660009A9FC /* calendarCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarCellView.swift; sourceTree = "<group>"; };
 		2BB11BC11E36BB07004B7FE8 /* headerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
 		2BB11BC31E36BB19004B7FE8 /* headerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
-		2BE8B8C71E60845200E58166 /* CalendarPickerDelegatesExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerDelegatesExt.swift; sourceTree = "<group>"; };
+		2BE803D81E648F9A008A63D7 /* CalendarViewDelegateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewDelegateExt.swift; sourceTree = "<group>"; };
+		2BE8B8C71E60845200E58166 /* JTCalendarDelegatesExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTCalendarDelegatesExt.swift; sourceTree = "<group>"; };
 		2BE8B8C81E60845200E58166 /* CalendarPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerVC.swift; sourceTree = "<group>"; };
 		2BE8B8C91E60845200E58166 /* ContainerCntntDelegatesExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerCntntDelegatesExt.swift; sourceTree = "<group>"; };
 		2BE8B8CA1E60845200E58166 /* ContainerControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerControllerProtocol.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				2BE8B8CA1E60845200E58166 /* ContainerControllerProtocol.swift */,
 				2BE8B8CD1E60845200E58166 /* ContentControllerProtocols.swift */,
 				2BE8B8CF1E60845200E58166 /* CourseLevelProtocol.swift */,
+				2BE8B8C71E60845200E58166 /* JTCalendarDelegatesExt.swift */,
 			);
 			name = controllerProtocols;
 			sourceTree = "<group>";
@@ -171,9 +174,9 @@
 		2BE8B8DD1E60981D00E58166 /* vcDelegateExt */ = {
 			isa = PBXGroup;
 			children = (
-				2BE8B8C71E60845200E58166 /* CalendarPickerDelegatesExt.swift */,
 				2BE8B8CB1E60845200E58166 /* ContainerCtrlDelegateExt.swift */,
 				2BE8B8C91E60845200E58166 /* ContainerCntntDelegatesExt.swift */,
+				2BE803D81E648F9A008A63D7 /* CalendarViewDelegateExt.swift */,
 			);
 			name = vcDelegateExt;
 			sourceTree = "<group>";
@@ -544,7 +547,8 @@
 				2BE8B8D71E60845200E58166 /* ContentControllerProtocols.swift in Sources */,
 				2B6CEE281E5E0DB400C83FCC /* CourseLevel.swift in Sources */,
 				2BE8B8D81E60845200E58166 /* ContentsVC.swift in Sources */,
-				2BE8B8D11E60845200E58166 /* CalendarPickerDelegatesExt.swift in Sources */,
+				2BE8B8D11E60845200E58166 /* JTCalendarDelegatesExt.swift in Sources */,
+				2BE803D91E648F9A008A63D7 /* CalendarViewDelegateExt.swift in Sources */,
 				2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */,
 				2B6CEE2A1E5E0E8D00C83FCC /* CourseLevelCKExtension.swift in Sources */,
 				2BE8B8D51E60845200E58166 /* ContainerCtrlDelegateExt.swift in Sources */,

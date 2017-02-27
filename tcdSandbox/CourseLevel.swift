@@ -18,7 +18,7 @@ class CourseLevel :NSObject {
     var krDateStrings :[String] = []
     var cwDateStrings :[String] = []
     var owDateStrings :[String] = []
-    
+        
     var courseLevelDelegate :CourseLevelDelegate?
     var courseDictToPass :[String : [String]] = [:] as [String : [String]]
     
