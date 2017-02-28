@@ -14,6 +14,12 @@ class ContainerPickerViewController :UIViewController {
     @IBOutlet weak var containerView :UIView!
     @IBOutlet weak var testLabel :UILabel!
     
+    @IBOutlet weak var firstBar :UIButton!
+    @IBOutlet weak var secondBar :UIButton!
+    @IBOutlet weak var thirdBar :UIButton!
+    @IBOutlet weak var fourthBar :UIButton!
+    @IBOutlet weak var fifthBar :UIButton!
+    
     //Vars
     var contentsViewController :ContentsViewController?
     var calendarViewController :CalendarPickerViewController?
@@ -21,12 +27,16 @@ class ContainerPickerViewController :UIViewController {
 
     var containerTag :Int?
     var testString :String?
-    var currentCourseLevel :CourseLevel!
+    var isCalendarShowingToggle :Bool?
     
+    var currentCourseLevel :CourseLevel!
     var courseLevelDelegate :CourseLevelDelegate?
+    
+    var myCourse = IndividualCourseObject()
+    
     let formatter = DateFormatter()
     
-    var isCalendarShowingToggle :Bool?
+    
     
     //View Methods
     override func viewDidLoad() {

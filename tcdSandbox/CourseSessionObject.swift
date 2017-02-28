@@ -12,4 +12,6 @@ class CourseSessionObject :NSObject {
     var sessionDate :Date?
     var sessionDateString :String?
     var sessionModule :String?
+    var sessionDisplayText :String?
+    
 }

@@ -147,7 +147,7 @@
                                     <action selector="updateContainerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cd3-Bf-89D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cs-y8-wh5" userLabel="firstKRCell">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cs-y8-wh5" userLabel="firstBar">
                                 <rect key="frame" x="74" y="365" width="285" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66618192430000001" green="0.1146387081" blue="0.077122321669999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,7 +155,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-7y-8sF" userLabel="firstCWCell">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-7y-8sF" userLabel="secondBar">
                                 <rect key="frame" x="74" y="423" width="285" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.47058823529999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -163,7 +163,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xk-bc-hFT" userLabel="secondCWCell">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xk-bc-hFT" userLabel="thirdBar">
                                 <rect key="frame" x="74" y="481" width="285" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.086696900430000001" green="0.74025988580000002" blue="0.16633048650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,7 +171,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-4n-UOL" userLabel="firstOWCell">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-4n-UOL" userLabel="fourthBar">
                                 <rect key="frame" x="74" y="539" width="285" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -179,7 +179,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHp-lW-ak1" userLabel="secondOWCell">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHp-lW-ak1" userLabel="fifthBar">
                                 <rect key="frame" x="73" y="597" width="287" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63439712869999998" green="0.40048796390000002" blue="0.66618192430000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -224,7 +224,12 @@
                     <navigationItem key="navigationItem" id="qoL-8k-mvk"/>
                     <connections>
                         <outlet property="containerView" destination="IPn-os-wmT" id="XFd-W0-rDR"/>
+                        <outlet property="fifthBar" destination="lHp-lW-ak1" id="CbT-Lf-WG5"/>
+                        <outlet property="firstBar" destination="5cs-y8-wh5" id="8VR-Iz-PFH"/>
+                        <outlet property="fourthBar" destination="LtH-4n-UOL" id="5Gu-Fz-jLQ"/>
+                        <outlet property="secondBar" destination="gQJ-7y-8sF" id="goB-sL-Y6N"/>
                         <outlet property="testLabel" destination="Arq-hT-eIw" id="GQT-YL-e9Q"/>
+                        <outlet property="thirdBar" destination="1xk-bc-hFT" id="tP5-ho-AyM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

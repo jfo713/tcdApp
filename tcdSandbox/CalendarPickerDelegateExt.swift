@@ -1,5 +1,5 @@
 //
-//  JTCalendarDelegatesExt.swift
+// CalendarPickerDelegateExt.swift
 //  tcdApp
 //
 //  Created by James O'Connor on 2/23/17.
@@ -33,6 +33,9 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
         let monthName = formatter.monthSymbols[(month-1) % 12]
         let year = calendar.component(NSCalendar.Unit.year, from : startDate as Date)
         monthLabel.text = monthName + ", \(year)"
+        self.allCalendarSessionDateStrings.append(contentsOf: self.calendarKRdateStrings)
+        self.allCalendarSessionDateStrings.append(contentsOf: self.calendarCWdateStrings)
+        self.allCalendarSessionDateStrings.append(contentsOf: self.calendarOWdateStrings)
         
     }
     
@@ -72,11 +75,21 @@ extension CalendarPickerViewController: JTAppleCalendarViewDataSource, JTAppleCa
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        handleCellSelection(calendar: self, view: cell, cellState: cellState)
+        guard let calendarCell = cell as? calendarCellView else {
+            return
+            }
+        let cellDateString :String = calendarCell.dateString!
+        
+        if allCalendarSessionDateStrings.contains(cellDateString) {
+            let cellModuleType :String = calendarCell.cellModuleType!
+            calendarCell.selectedCellIndicatorToggle(view: calendarCell, cellState: cellState)
+            self.contentsDelegate?.handleSessionSelection(date: date, dateString: cellDateString, moduleType: cellModuleType)
+        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        handleCellDeselection(calendar: self, view: cell, cellState: cellState)
+        let calendarCell = cell as? calendarCellView
+        calendarCell?.selectedCellIndicatorToggle(view: calendarCell, cellState: cellState)
     }
-
+    
 }

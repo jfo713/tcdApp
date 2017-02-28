@@ -17,13 +17,10 @@ extension ContainerPickerViewController :CourseLevelDelegate {
             switch key {
             case "kr":
                 self.calendarViewController?.calendarKRdateStrings = value
-                print("kr + \(self.calendarViewController?.calendarKRdateStrings)")
             case "cw":
                 self.calendarViewController?.calendarCWdateStrings = value
-                print("cw + \(self.calendarViewController?.calendarCWdateStrings)")
             case "ow":
                 self.calendarViewController?.calendarOWdateStrings = value
-                print("ow + \(self.calendarViewController?.calendarOWdateStrings)")
             default:
                 return
             }
@@ -51,35 +48,87 @@ extension ContainerPickerViewController :ContentsControllerDelegate {
     }
     
     func reloadCalendarCourseLevel() {
-        //let date = self.calendarViewController?.visibleDates.monthDates.first
-        
         let visibleDates = self.calendarViewController?.calendarView.visibleDates()
         let startDate = visibleDates?.monthDates.first
         self.calendarViewController?.calendarView.reloadData(withAnchor: startDate) {
-            
             self.calendarViewController?.setupViewsOfCalendar(visibleDates: visibleDates!)
-            //self.calendarViewController?.calendarView.reloadDates(visibleDates!.monthDates)
-        }
-        
-        print("reloadCalendarCourseLevel First Date: ", visibleDates?.monthDates.first! ?? "no")
+            
+            }
         
     }
     
-    func handleSessionSelection(dateString :String, moduleType :String) {
-        switch moduleType {
+    func handleSessionSelection(date :Date, dateString :String, moduleType :String) {
+        let newSession = makeSessionObject(date: date, dateString: dateString, moduleType: moduleType)
+        //myCourse.evaluateSessionDates(sessionToCompare: newSession)
+        let sessionToUpdate :String = myCourse.sortSessionDate(sessionToSort: newSession)
+        //setDisplayText(myCourse: myCourse)
+        let displayText :String = newSession.sessionDisplayText!
+        updateDisplayText(sessionToUpdate: sessionToUpdate, newDisplayText: displayText)
+
+    }
+    
+
+    
+    func makeSessionObject(date :Date, dateString :String, moduleType :String) -> CourseSessionObject {
+        let displayText = date.toDisplayText(formatter: formatter)
+        let newSessionObject = CourseSessionObject()
+        newSessionObject.sessionDate = date
+        newSessionObject.sessionDateString = dateString
+        newSessionObject.sessionModule = moduleType
+        newSessionObject.sessionDisplayText = displayText
+        return newSessionObject
+    }
+    
+    func updateDisplayText(sessionToUpdate :String, newDisplayText :String) {
+        let key = sessionToUpdate
+        switch key {
             case "kr":
-            print("kr connected")
-            case "cw":
-            print("cw connected")
-            case "ow":
-            print("ow cnnected")
+                print("krAgain")
+                firstBar.titleLabel?.text = newDisplayText
+                return
+            case "cw1":
+                print("cw1")
+                secondBar.titleLabel?.text = newDisplayText
+            case "cw2":
+                print("cw2")
+                thirdBar.titleLabel?.text = newDisplayText
+            case "ow1":
+                fourthBar.titleLabel?.text = newDisplayText
+                print("ow1")
+            case "ow2":
+                fifthBar.titleLabel?.text = newDisplayText
+                print("ow2")
+            case "none":
+                print("none")
             default:
-            print("connected")
             return
         }
-        
     }
     
+    func setDisplayText(myCourse :IndividualCourseObject) {
+
+
+        if (myCourse.krSession != nil) {
+            firstBar.titleLabel?.text = (myCourse.krSession?.sessionDisplayText!)!
+            return
+            }
+        if (myCourse.cwSession1 != nil) {
+            secondBar.titleLabel?.text = (myCourse.cwSession1?.sessionDisplayText!)!
+            return
+        }
+        if (myCourse.cwSession2 != nil) {
+            thirdBar.titleLabel?.text = (myCourse.cwSession2?.sessionDisplayText!)!
+            return
+        }
+        if (myCourse.owSession1 != nil) {
+            fourthBar.titleLabel?.text = (myCourse.owSession1?.sessionDisplayText!)!
+            return
+        }
+        if (myCourse.owSession2 != nil) {
+            fifthBar.titleLabel?.text = (myCourse.owSession2?.sessionDisplayText!)!
+            return
+        }
+    }
     
 }
 
