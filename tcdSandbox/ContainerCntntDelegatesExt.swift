@@ -84,28 +84,28 @@ extension ContainerPickerViewController :ContentsControllerDelegate {
         switch key {
             case "kr":
                 print("krAgain")
-                firstBar.titleLabel?.text = newDisplayText
+                firstLabel.text = newDisplayText
                 return
             case "cw1":
                 print("cw1")
-                secondBar.titleLabel?.text = newDisplayText
+                secondLabel.text = newDisplayText
             case "cw2":
                 print("cw2")
-                thirdBar.titleLabel?.text = newDisplayText
+                thirdLabel.text = newDisplayText
             case "cw1+cw2":
                 print("cw1+cw2")
-                secondBar.titleLabel?.text = self.myCourse.cwSession1?.sessionDisplayText
-                thirdBar.titleLabel?.text = self.myCourse.cwSession2?.sessionDisplayText
+                secondLabel.text = self.myCourse.cwSession1?.sessionDisplayText
+                thirdLabel.text = self.myCourse.cwSession2?.sessionDisplayText
             case "ow1":
-                fourthBar.titleLabel?.text = newDisplayText
+                fourthLabel.text = newDisplayText
                 print("ow1")
             case "ow2":
-                fifthBar.titleLabel?.text = newDisplayText
+                fifthLabel.text = newDisplayText
                 print("ow2")
             case "ow1+ow2":
                 print("ow1+ow2")
-                fourthBar.titleLabel?.text = self.myCourse.owSession1?.sessionDisplayText
-                fifthBar.titleLabel?.text = self.myCourse.owSession2?.sessionDisplayText
+                fourthLabel.text = self.myCourse.owSession1?.sessionDisplayText
+                fifthLabel.text = self.myCourse.owSession2?.sessionDisplayText
             case "none":
                 print("none")
             default:

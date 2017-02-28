@@ -14,11 +14,11 @@ class ContainerPickerViewController :UIViewController {
     @IBOutlet weak var containerView :UIView!
     @IBOutlet weak var testLabel :UILabel!
     
-    @IBOutlet weak var firstBar :UIButton!
-    @IBOutlet weak var secondBar :UIButton!
-    @IBOutlet weak var thirdBar :UIButton!
-    @IBOutlet weak var fourthBar :UIButton!
-    @IBOutlet weak var fifthBar :UIButton!
+    @IBOutlet weak var firstLabel :UILabel!
+    @IBOutlet weak var secondLabel :UILabel!
+    @IBOutlet weak var thirdLabel :UILabel!
+    @IBOutlet weak var fourthLabel :UILabel!
+    @IBOutlet weak var fifthLabel :UILabel!
     
     //Vars
     var contentsViewController :ContentsViewController?

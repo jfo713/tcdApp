@@ -65,9 +65,30 @@ class CompleteCourseObject :NSObject {
                         }
                     }
                 else if (self.krSession != nil) {
-                    
+                    if (self.krSession?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                        if (self.cwSession1 == nil) {
+                            self.cwSession1 = sessionToSort
+                            sessionToUpdate = "cw1"
+                        }
+                        else {
+                            if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                                self.cwSession2 = sessionToSort
+                                sessionToUpdate = "cw2"
+                            }
+                            else {
+                                self.cwSession2 = self.cwSession1
+                                self.cwSession1 = sessionToSort
+                                sessionToUpdate = "cw1+cw2"
+                                }
+                            }
+                        }
+                    else {
+                        print("error - chose a CW after KR")
+                        sessionToUpdate = "none"
+                        }
                     }
                 else if (self.owSession1 != nil) {
+
                     
                     }
             
