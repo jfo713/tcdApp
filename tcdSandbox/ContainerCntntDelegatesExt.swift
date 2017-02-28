@@ -92,43 +92,27 @@ extension ContainerPickerViewController :ContentsControllerDelegate {
             case "cw2":
                 print("cw2")
                 thirdBar.titleLabel?.text = newDisplayText
+            case "cw1+cw2":
+                print("cw1+cw2")
+                secondBar.titleLabel?.text = self.myCourse.cwSession1?.sessionDisplayText
+                thirdBar.titleLabel?.text = self.myCourse.cwSession2?.sessionDisplayText
             case "ow1":
                 fourthBar.titleLabel?.text = newDisplayText
                 print("ow1")
             case "ow2":
                 fifthBar.titleLabel?.text = newDisplayText
                 print("ow2")
+            case "ow1+ow2":
+                print("ow1+ow2")
+                fourthBar.titleLabel?.text = self.myCourse.owSession1?.sessionDisplayText
+                fifthBar.titleLabel?.text = self.myCourse.owSession2?.sessionDisplayText
             case "none":
                 print("none")
             default:
             return
         }
     }
-    
-    func setDisplayText(myCourse :IndividualCourseObject) {
 
-
-        if (myCourse.krSession != nil) {
-            firstBar.titleLabel?.text = (myCourse.krSession?.sessionDisplayText!)!
-            return
-            }
-        if (myCourse.cwSession1 != nil) {
-            secondBar.titleLabel?.text = (myCourse.cwSession1?.sessionDisplayText!)!
-            return
-        }
-        if (myCourse.cwSession2 != nil) {
-            thirdBar.titleLabel?.text = (myCourse.cwSession2?.sessionDisplayText!)!
-            return
-        }
-        if (myCourse.owSession1 != nil) {
-            fourthBar.titleLabel?.text = (myCourse.owSession1?.sessionDisplayText!)!
-            return
-        }
-        if (myCourse.owSession2 != nil) {
-            fifthBar.titleLabel?.text = (myCourse.owSession2?.sessionDisplayText!)!
-            return
-        }
-    }
     
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class IndividualCourseObject :NSObject {
+class CompleteCourseObject :NSObject {
     var courseType :String?
     var krSession :CourseSessionObject?
     var cwSession1 :CourseSessionObject?
@@ -27,13 +27,53 @@ class IndividualCourseObject :NSObject {
                     self.krSession = sessionToSort
                     sessionToUpdate = "kr"
                     }
-                else if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) || (self.owSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
-                   sessionToUpdate = "none"
+                else if (self.cwSession1 != nil) {
+                    if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                        print("error - choose a KR earlier than CW")
+                        sessionToUpdate = "none"
+                        }
+                    else {
+                        self.krSession = sessionToSort
+                        sessionToUpdate = "kr"
+                        }
                     }
+                else if (self.owSession1 != nil) {
+                    if (self.owSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                        print("error - choose a KR earlier than OW")
+                        sessionToUpdate = "none"
+                    }
+                    else {
+                        sessionToUpdate = "kr"
+                    }
+                }
             case "cw":
-            sessionToUpdate = "cw1"
+                if (self.krSession == nil) && (self.owSession1 == nil) {
+                    if (self.cwSession1 == nil) {
+                        self.cwSession1 = sessionToSort
+                        sessionToUpdate = "cw1"
+                        }
+                    else {
+                        if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                            self.cwSession2 = sessionToSort
+                            sessionToUpdate = "cw2"
+                            }
+                        else {
+                            self.cwSession2 = self.cwSession1
+                            self.cwSession1 = sessionToSort
+                            sessionToUpdate = "cw1+cw2"
+                        }
+                        }
+                    }
+                else if (self.krSession != nil) {
+                    
+                    }
+                else if (self.owSession1 != nil) {
+                    
+                    }
+            
             case "ow":
-            sessionToUpdate = "ow1"
+                self.owSession1 = sessionToSort
+                sessionToUpdate = "ow1"
             default:
             sessionToUpdate = "none"
         }

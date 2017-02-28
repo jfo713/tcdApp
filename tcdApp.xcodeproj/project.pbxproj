@@ -17,7 +17,7 @@
 		2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8857EB1E3143660009A9FC /* calendarCellView.swift */; };
 		2BB11BC21E36BB07004B7FE8 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB11BC11E36BB07004B7FE8 /* headerView.swift */; };
 		2BB11BC41E36BB19004B7FE8 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB11BC31E36BB19004B7FE8 /* headerView.xib */; };
-		2BE803DB1E6499D5008A63D7 /* individualCourseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE803DA1E6499D5008A63D7 /* individualCourseObject.swift */; };
+		2BE803DB1E6499D5008A63D7 /* CompleteCourseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE803DA1E6499D5008A63D7 /* CompleteCourseObject.swift */; };
 		2BE803DD1E64B0D7008A63D7 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE803DC1E64B0D7008A63D7 /* DateExt.swift */; };
 		2BE8B8D11E60845200E58166 /* CalendarPickerDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8C71E60845200E58166 /* CalendarPickerDelegateExt.swift */; };
 		2BE8B8D21E60845200E58166 /* CalendarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8B8C81E60845200E58166 /* CalendarPickerVC.swift */; };
@@ -69,7 +69,7 @@
 		2B8857EB1E3143660009A9FC /* calendarCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarCellView.swift; sourceTree = "<group>"; };
 		2BB11BC11E36BB07004B7FE8 /* headerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
 		2BB11BC31E36BB19004B7FE8 /* headerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
-		2BE803DA1E6499D5008A63D7 /* individualCourseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = individualCourseObject.swift; sourceTree = "<group>"; };
+		2BE803DA1E6499D5008A63D7 /* CompleteCourseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteCourseObject.swift; sourceTree = "<group>"; };
 		2BE803DC1E64B0D7008A63D7 /* DateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		2BE8B8C71E60845200E58166 /* CalendarPickerDelegateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerDelegateExt.swift; sourceTree = "<group>"; };
 		2BE8B8C81E60845200E58166 /* CalendarPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerVC.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				2B6CEE271E5E0DB400C83FCC /* CourseLevel.swift */,
 				2B6CEE291E5E0E8D00C83FCC /* CourseLevelCKExtension.swift */,
 				2B6CEE2E1E5E239300C83FCC /* CourseSessionObject.swift */,
-				2BE803DA1E6499D5008A63D7 /* individualCourseObject.swift */,
+				2BE803DA1E6499D5008A63D7 /* CompleteCourseObject.swift */,
 				2BE803DC1E64B0D7008A63D7 /* DateExt.swift */,
 			);
 			name = Model;
@@ -557,7 +557,7 @@
 				2B63298B1E65E5DE008AACBC /* AnimationClass.swift in Sources */,
 				2B8857EC1E3143660009A9FC /* calendarCellView.swift in Sources */,
 				2B6CEE2A1E5E0E8D00C83FCC /* CourseLevelCKExtension.swift in Sources */,
-				2BE803DB1E6499D5008A63D7 /* individualCourseObject.swift in Sources */,
+				2BE803DB1E6499D5008A63D7 /* CompleteCourseObject.swift in Sources */,
 				2BE8B8D51E60845200E58166 /* ContainerCtrlDelegateExt.swift in Sources */,
 				2BE8B8D61E60845200E58166 /* ContainerPickerVC.swift in Sources */,
 				2BE8B8D31E60845200E58166 /* ContainerCntntDelegatesExt.swift in Sources */,

@@ -33,7 +33,7 @@ class calendarCellView: JTAppleDayCellView {
             return
         }
         if cellState.isSelected {
-            calendarCellView.selectedCellIndicator.layer.cornerRadius = 15
+            calendarCellView.selectedCellIndicator.layer.cornerRadius = 12.5
             calendarCellView.selectedCellIndicator.isHidden = false
         }
         else {

@@ -32,7 +32,7 @@ class ContainerPickerViewController :UIViewController {
     var currentCourseLevel :CourseLevel!
     var courseLevelDelegate :CourseLevelDelegate?
     
-    var myCourse = IndividualCourseObject()
+    var myCourse = CompleteCourseObject()
     
     let formatter = DateFormatter()
     
