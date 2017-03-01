@@ -5,7 +5,6 @@
 //  Created by James O'Connor on 2/27/17.
 //  Copyright © 2017 James O'Connor. All rights reserved.
 //
-
 import Foundation
 
 class CompleteCourseObject :NSObject {
@@ -69,12 +68,12 @@ class CompleteCourseObject :NSObject {
                         if (self.cwSession1 == nil) {
                             self.cwSession1 = sessionToSort
                             sessionToUpdate = "cw1"
-                        }
+                            }
                         else {
                             if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
                                 self.cwSession2 = sessionToSort
                                 sessionToUpdate = "cw2"
-                            }
+                                }
                             else {
                                 self.cwSession2 = self.cwSession1
                                 self.cwSession1 = sessionToSort
@@ -83,77 +82,100 @@ class CompleteCourseObject :NSObject {
                             }
                         }
                     else {
-                        print("error - chose a CW after KR")
+                        print("error - choose a CW after KR")
                         sessionToUpdate = "none"
                         }
                     }
                 else if (self.owSession1 != nil) {
-
-                    
-                    }
-            
+                    if (self.owSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedDescending) {
+                        if (self.cwSession1 == nil) {
+                            self.cwSession1 = sessionToSort
+                            sessionToUpdate = "cw1"
+                        }
+                        else {
+                            if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                                self.cwSession2 = sessionToSort
+                                sessionToUpdate = "cw2"
+                                }
+                            else {
+                                self.cwSession2 = self.cwSession1
+                                self.cwSession1 = sessionToSort
+                                sessionToUpdate = "cw1+cw2"
+                                }
+                            }
+                        }
+                    else {
+                        print("error - choose a CW before OW")
+                        sessionToUpdate = "none"
+                        }
+                }
             case "ow":
-                self.owSession1 = sessionToSort
-                sessionToUpdate = "ow1"
+                if (self.krSession == nil) && (self.cwSession1 == nil) {
+                    if (self.owSession1 == nil) {
+                        self.owSession1 = sessionToSort
+                        sessionToUpdate = "ow1"
+                    }
+                    else {
+                        if (self.owSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                            self.owSession2 = sessionToSort
+                            sessionToUpdate = "ow2"
+                        }
+                        else {
+                            self.owSession2 = self.owSession1
+                            self.owSession1 = sessionToSort
+                            sessionToUpdate = "ow1+ow2"
+                        }
+                    }
+                }
+                else if (self.krSession != nil) {
+                    if (self.krSession?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                        if (self.owSession1 == nil) {
+                            self.owSession1 = sessionToSort
+                            sessionToUpdate = "ow1"
+                        }
+                        else {
+                            if (self.owSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                                self.owSession2 = sessionToSort
+                                sessionToUpdate = "ow2"
+                                }
+                            else {
+                                self.owSession2 = self.owSession1
+                                self.owSession1 = sessionToSort
+                                sessionToUpdate = "ow1+ow2"
+                                }
+                            }
+                        }
+                    else {
+                        print("error - choose a OW after KR")
+                        sessionToUpdate = "none"
+                    }
+                }
+                else if (self.cwSession1 != nil) {
+                    if (self.cwSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                        if (self.owSession1 == nil) {
+                            self.owSession1 = sessionToSort
+                            sessionToUpdate = "ow1"
+                        }
+                        else {
+                            if (self.owSession1?.sessionDate!.compare(sessionDate) == ComparisonResult.orderedAscending) {
+                                self.owSession2 = sessionToSort
+                                sessionToUpdate = "ow2"
+                            }
+                            else {
+                                self.owSession2 = self.owSession1
+                                self.owSession1 = sessionToSort
+                                sessionToUpdate = "ow1+ow2"
+                            }
+                        }
+                    }
+                    else {
+                        print("error - choose a OW before CW")
+                        sessionToUpdate = "none"
+                    }
+            }
             default:
             sessionToUpdate = "none"
         }
-        
         return sessionToUpdate!
     }
-    
-    func evaluateSessionDates(sessionToCompare :CourseSessionObject) {
-        let module = sessionToCompare.sessionModule!
-        switch module {
-            case "kr":
-                if (self.cwSession1 == nil) && (self.owSession1 == nil) {
-                    self.krSession = sessionToCompare
-                    }
-                else {
-                    if (self.cwSession1?.sessionDate!.compare(sessionToCompare.sessionDate!) == ComparisonResult.orderedAscending) || (self.owSession1?.sessionDate!.compare(sessionToCompare.sessionDate!) == ComparisonResult.orderedAscending) {
-                        print("choose kr session before cw/ow")
-                    }
-                    else {
-                        self.krSession = sessionToCompare
-                        }
-                    }
-            case "cw":
-                if (self.cwSession1 == nil) {
-                    self.cwSession1 = sessionToCompare
-                    }
-                else {
-                    if (self.cwSession1?.sessionDate!.compare(sessionToCompare.sessionDate!) == ComparisonResult.orderedAscending) {
-                        self.cwSession2 = sessionToCompare
-                        }
-                    if (self.cwSession1?.sessionDate!.compare(sessionToCompare.sessionDate!) == ComparisonResult.orderedDescending) {
-                        self.cwSession2 = cwSession1
-                        self.cwSession1 = sessionToCompare
-                        }
-                    else {
-                        print("please choose cw2")
-                        }
-                    }
-            case "ow":
-                if (self.owSession1 == nil) {
-                    self.owSession1 = sessionToCompare
-                    }
-                else {
-                    if (self.owSession1?.sessionDate!.compare(sessionToCompare.sessionDate!) == ComparisonResult.orderedAscending) {
-                        self.cwSession2 = sessionToCompare
-                        }
-                    if (self.owSession1?.sessionDate!.compare(sessionToCompare.sessionDate!) == ComparisonResult.orderedDescending) {
-                        self.owSession2 = owSession1
-                        self.owSession1 = sessionToCompare
-                    }
-                    else {
-                        print("please choose ow2")
-                    }
-
-            }
-            default:
-            break
-        }
-        print(self)
-    }
-    
 }
